@@ -78,5 +78,5 @@ La clinique a besoin d'une interface web simple permettant au personnel de consu
   3. Création des données JSON
   4. Développement (HTML/CSS/JS)
   5. Tests
-  6.  Mise en Prod --> Github Pages
+  6. Mise en Prod --> Github Pages
 

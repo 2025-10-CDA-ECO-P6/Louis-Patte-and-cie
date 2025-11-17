@@ -84,7 +84,6 @@ graph LR
         UC7[Voir les vaccinations]
         UC8[Voir les traitements en cours]
         UC9[Voir les informations propriétaire]
-        UC10[Revenir à la liste]
     end
     
     User[Véterinaire]
@@ -92,14 +91,14 @@ graph LR
     User -->|accède| UC1
     User -->|effectue| UC2
     User -->|applique| UC3
-    User -->|sélectionne| UC5
+    UC1 -->|sélectionne dans la liste| UC5
     
     UC5 -->|inclut| UC6
     UC5 -->|inclut| UC7
     UC5 -->|inclut| UC8
     UC5 -->|inclut| UC9
     
-    UC5 -->|permet| UC10
+    UC5 -->|permet de revenir a la liste| UC1
     
     UC2 -.-> UC1
     UC3 -.-> UC1
