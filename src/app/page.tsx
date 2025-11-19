@@ -18,8 +18,8 @@ export default function Page() {
           <div key={animal.id} className={styles.card}>
             <h2>{animal.nom}</h2>
             {animal.photo && (
-            <img src={animal.photo} alt={animal.nom} className={styles.profilephoto} />
-        )}
+            <img src={animal.photo} className={styles.profilephoto} />
+            )}
             <p>Propriétaire: {proprio?.prenom} {proprio?.nom}</p>
             <Link href={`/animal/${animal.id}`}>Voir détails</Link>
           </div>
