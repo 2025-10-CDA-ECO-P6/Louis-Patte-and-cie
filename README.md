@@ -84,7 +84,7 @@ La clinique a besoin d'une interface web simple permettant au personnel de consu
 
 ## Next.js installation
 
-`npm i next@latest react@latest react-dom@latest`
+`npm i `
 
 ## First run
 
