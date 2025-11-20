@@ -1,0 +1,1 @@
+export {default as logo} from './arrow-left.svg'
