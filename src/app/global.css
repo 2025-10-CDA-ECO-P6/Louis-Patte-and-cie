@@ -19,6 +19,8 @@ a {
     border-radius: 8px;
 }
 
+/* first page styles */
+
 .title {
     margin: 0 auto;
     background-color: #FFFFFF;
@@ -140,7 +142,7 @@ a {
     text-decoration: underline;
 }
 
-/* animal detail styles */
+/* animal detail page styles */
 
 .detailcard {
     margin-bottom: 10px;
