@@ -19,6 +19,12 @@ a {
     border-radius: 8px;
 }
 
+.title {
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
 @media screen and (min-width: 650px) {
     .card-content {
         display: flex;
@@ -31,23 +37,32 @@ a {
         gap: 24px;
     }
 
+    .photo {
+        width: 300px; 
+        height: 312px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: 0 auto; 
+    }
 }
 
-/* Photo styles */
+@media  screen and (max-width: 649px) {
+    .photo {
+        width: 150px; 
+        height: 360px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: 0 auto; 
+    }
+}
+
+/* image styles */
 
 .profilephoto {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
-}
-
-.photo {
-    width: 150px; 
-    height: 360px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin: 0 auto; 
 }
 
 /* card-info styles */

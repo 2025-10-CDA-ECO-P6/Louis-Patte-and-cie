@@ -1,4 +1,4 @@
-import { fetchMockData } from '../../../public/data-fetch'
+import { fetchMockData } from '../../../utils/data-fetch'
 import Link from 'next/link'
 import { logo } from '../../../assets'
 import Image from 'next/image'

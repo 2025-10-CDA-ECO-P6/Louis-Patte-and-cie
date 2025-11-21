@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { fetchMockData } from '../public/data-fetch'
+import { fetchMockData } from '../utils/data-fetch'
 
 export default async function Page() {
   const mockData = await fetchMockData();
@@ -10,11 +10,14 @@ export default async function Page() {
   }
 
   return (
-    <div className='container'>
+    <div className='container card'>
+      <div className='title'>
+        <h1><strong style={{ padding: '10px' }}>What's up Doc ? 🐶🐱</strong></h1>
+      </div>
       {animals.map(animal => {
         const proprio = getOwner(animal.proprietaire_id);
         return (
-          <div key={animal.id} className='card'> 
+          <div key={animal.id} className='detailcard'> 
             <Link key={animal.id} href={`/animal/${animal.id}`}>
               <div className='card-content'>
                 {animal.photo && (
