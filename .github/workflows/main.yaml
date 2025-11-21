@@ -39,7 +39,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      working-directory: ./express_API
+      working-directory: ./
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
@@ -50,8 +50,8 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: ./express_API
-        file: ./express_API/Dockerfile
+        context: ./
+        file: ./Dockerfile
         push: true
         tags: |
           ${{ secrets.DOCKERHUB_USERNAME }}/my-nextjs-app:latest
