@@ -1,6 +1,6 @@
 import { fetchMockData } from '../../../utils/data-fetch'
 import Link from 'next/link'
-import { logo } from '../../../assets'
+import { leftArrow } from '../../../assets'
 import Image from 'next/image'
 
 export default async function AnimalPage({ params }: { params: Promise<{ id: string }> }) {
@@ -18,7 +18,7 @@ export default async function AnimalPage({ params }: { params: Promise<{ id: str
     <div className='container card'>
         <div className='title-header'>
             <Link href="/">
-                <Image src={logo} alt="Retour" width={32} height={32} />
+                <Image src={leftArrow} alt="Retour" width={32} height={32} />
             </Link>
             <h1>Carnet de santé de {animal.nom} 🐾</h1>
         </div>
