@@ -5,29 +5,34 @@ import Link from 'next/link'
 import { fetchMockData } from '../utils/data-fetch'
 import SearchBar from '../components/SearchableAnimalList'
 import FilterButtons from '../components/FilterButtons'
+import type { MockData, Animal, Proprietaire, Vaccination } from '../types'
 
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('')
   const [activeFilter, setActiveFilter] = useState('Sexe')
-  const [mockData, setMockData] = useState<any>(null)
+  const [mockData, setMockData] = useState<MockData | null>(null)
 
   // Load data on mount
   useEffect(() => {
     fetchMockData().then(setMockData)
   }, [])
 
-  if (!mockData) return <div>Loading...</div>
+  if (!mockData) {
+    return <div>Loading...</div>
+  }
 
   const animals = mockData.animaux;
   const proprietaires = mockData.proprietaires;
 
   const getOwner = (proprietaire_id: number) => {
-    return proprietaires.find((owner: any) => owner.id === proprietaire_id)
+    return proprietaires.find((owner: Proprietaire) => owner.id === proprietaire_id)
   }
 
   // Filter by search query
-  const searchFilteredAnimals = animals.filter((animal: any) => {
-    if (!searchQuery) return true;
+  const searchFilteredAnimals = animals.filter((animal: Animal) => {
+    if (!searchQuery) {
+      return true;
+    }
 
     const owner = getOwner(animal.proprietaire_id);
     const searchLower = searchQuery.toLowerCase();
@@ -39,12 +44,12 @@ export default function Page() {
       animal.sexe.toLowerCase().includes(searchLower) ||
       (owner?.nom.toLowerCase().includes(searchLower)) ||
       (owner?.prenom.toLowerCase().includes(searchLower)) ||
-      animal.vaccinations?.some((v: any) => v.nom.toLowerCase().includes(searchLower))
+      animal.vaccinations?.some((v: Vaccination) => v.nom.toLowerCase().includes(searchLower))
     );
   });
 
   // Sort based on active filter
-  const filteredAnimals = [...searchFilteredAnimals].sort((a: any, b: any) => {
+  const filteredAnimals = [...searchFilteredAnimals].sort((a: Animal, b: Animal) => {
     switch (activeFilter) {
       case 'Sexe':
         // M (Mâle) before F (Femelle)
@@ -78,7 +83,7 @@ export default function Page() {
       </div>
       <SearchBar value={searchQuery} onChange={setSearchQuery} />
       <FilterButtons activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-      {filteredAnimals.map((animal: any) => {
+      {filteredAnimals.map((animal: Animal) => {
         const proprio = getOwner(animal.proprietaire_id);
         return (
           <div key={animal.id} className='detailcard'> 
@@ -94,7 +99,7 @@ export default function Page() {
                       <p><strong>Sexe:</strong> {animal.sexe === 'M' ? 'Mâle' : 'Femelle'}</p>
                       <p><strong>Propriétaire:</strong> {proprio?.prenom} {proprio?.nom}</p>
                       {animal.vaccinations && animal.vaccinations.length > 0 && (
-                        <p><strong>Vaccination:</strong> {animal.vaccinations.map((v: any) => v.nom).join(', ')}</p>
+                        <p><strong>Vaccination:</strong> {animal.vaccinations.map((v: Vaccination) => v.nom).join(', ')}</p>
                       )}
                     </div>
                 </div>

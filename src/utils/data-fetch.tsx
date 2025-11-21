@@ -1,42 +1,4 @@
-interface Proprietaire {
-  id: number;
-  nom: string;
-  prenom: string;
-  telephone: string;
-  email: string;
-}
-
-interface Vaccination {
-  nom: string;
-  date: string;
-  rappel: string;
-}
-
-interface HistoriqueEntry {
-  date: string;
-  motif: string;
-  notes: string;
-}
-
-interface Animal {
-  id: number;
-  nom: string;
-  espece: string;
-  race: string;
-  date_naissance: string;
-  poids: number;
-  sexe: string;
-  allergies: string | null;
-  photo: string;
-  proprietaire_id: number;
-  vaccinations: Vaccination[];
-  historique: HistoriqueEntry[];
-}
-
-interface MockData {
-  proprietaires: Proprietaire[];
-  animaux: Animal[];
-}
+import type { MockData } from '../types'
 
 export async function fetchMockData(): Promise<MockData> {
   try {
